@@ -62,7 +62,7 @@ pipeline {
          stage("Docker Login") {    
                steps {
 	            withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'DOCKER_HUB_PASSWORD')]) {   
-                     sh 'docker login -u devopscict -p $DOCKER_HUB_PASSWORD'
+                     sh 'docker login -u devopscict --password-stdin $DOCKER_HUB_PASSWORD'
 	       }
               }
          }
